@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Cold
+  - Goal
+  - Hot
+  - Block
+  - Ice
   layers:
   - Default
   - TransparentFX

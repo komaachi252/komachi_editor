@@ -110,7 +110,24 @@ public class FileManager : MonoBehaviour
         //  GUI上の削除
         Destroy(m_object_instances[i, j]);
     }
+    public void Reload_Map()
+    {
+        foreach (Transform n in this.gameObject.transform){
+            Destroy(n.gameObject);
+        }
+        //  座標初期値
+        var x = 0.5f;
+        var y = (m_map_data.Height - 1) * 1.0f;
+        m_object_instances = new GameObject[MAP_HEIGHT_MAX, MAP_WIDTH_MAX];
 
-   
+        for (int i = 0; i < m_map_data.Height; i++){
+            for (int j = 0; j < m_map_data.Width; j++){
+                if (m_map_data.Map_data[i, j] == 0) continue;
+                GameObject obj = Instantiate(m_objects[m_map_data.Map_data[i, j]], new Vector3(x + j, y - i, 0.0f), Quaternion.identity);
+                obj.transform.parent = this.gameObject.GetComponent<Transform>().transform;
+                m_object_instances[i, j] = obj;
+            }
+        }
+    }
 
 }

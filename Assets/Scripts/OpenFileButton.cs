@@ -60,8 +60,13 @@ public class OpenFileButton : MonoBehaviour
         return true;
     }
 
-    void Load_Map(string file_path)
+    public void Load_Map(string file_path)
     {
         m_file_manager.GetComponent<FileManager>().Load_Map_Data(file_path);
+    }
+
+    public string Get_File_Path()
+    {
+        return m_current_file_path;
     }
 }

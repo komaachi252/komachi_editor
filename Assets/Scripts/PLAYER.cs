@@ -14,6 +14,7 @@ public class PLAYER : MonoBehaviour
     public int stay_COLD_R = 0; //仮COKD接触フラグ右側
     public int stay_COLD_L = 0; //仮COLD接触フラグ左側
     public int stay_COLD = 0;   //COLD完全接触フラグ
+    GameObject m_play_button;
 
     Color[] colors = new Color[3] { new Color(0.1f, 0.2f, 0.3f, 1.0f),
                                     new Color(0.0f, 0.5f, 0.5f, 1.0f),
@@ -23,12 +24,13 @@ public class PLAYER : MonoBehaviour
     void Start()
     {
         GetComponent<Renderer>().material.color = colors[TYPE];
-        gameObject.GetComponent<Rigidbody>().useGravity = false;
+        m_play_button = GameObject.Find("PlayButton");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!m_play_button.GetComponent<PlayButton>().Is_Play) return;
         if(Input.GetKeyDown(KeyCode.A) && MOVE_NOW == 0)
         {
             Debug.Log("入力");
