@@ -25,13 +25,14 @@ public class PLAYER : MonoBehaviour
     {
         GetComponent<Renderer>().material.color = colors[TYPE];
         m_play_button = GameObject.Find("PlayButton");
+        gameObject.GetComponent<Rigidbody>().useGravity = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!m_play_button.GetComponent<PlayButton>().Is_Play) return;
-        if(Input.GetKeyDown(KeyCode.A) && MOVE_NOW == 0)
+        Play_Check();
+        if (Input.GetKeyDown(KeyCode.A) && MOVE_NOW == 0)
         {
             Debug.Log("入力");
             if(stay_HOT==1)
@@ -145,5 +146,11 @@ public class PLAYER : MonoBehaviour
     public void CLEAR_stayCOLD()
     {
         stay_COLD = 0;
+    }
+
+    void Play_Check()
+    {
+        if (!m_play_button.GetComponent<PlayButton>().Is_Play) return;
+        if (!gameObject.GetComponent<Rigidbody>().useGravity) gameObject.GetComponent<Rigidbody>().useGravity = true;
     }
 }

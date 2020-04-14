@@ -2930,7 +2930,7 @@ PrefabInstance:
     - target: {fileID: 2071675765971728862, guid: 2f341521ef6e9c64fb0a05e354f7f791,
         type: 3}
       propertyPath: m_Text
-      value: Water
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2071675765971728862, guid: 2f341521ef6e9c64fb0a05e354f7f791,
         type: 3}
