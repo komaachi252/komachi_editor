@@ -9,6 +9,8 @@ TagManager:
   - Hot
   - Block
   - Ice
+  - Aqua
+  - Cloud
   layers:
   - Default
   - TransparentFX

@@ -8,13 +8,13 @@ public class HIT_R : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        this.gameObject.tag = PLAYER.tag;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        this.gameObject.tag = PLAYER.tag;
     }
 
     void OnTriggerEnter(Collider other)             //他のオブジェクトとの接触時の処理

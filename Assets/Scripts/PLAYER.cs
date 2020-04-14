@@ -26,6 +26,14 @@ public class PLAYER : MonoBehaviour
         GetComponent<Renderer>().material.color = colors[TYPE];
         m_play_button = GameObject.Find("PlayButton");
         gameObject.GetComponent<Rigidbody>().useGravity = false;
+        if (gameObject.CompareTag("Ice"))
+        {
+            Physics.gravity = new Vector3(0, -9.8f, 0);
+        }
+        if (gameObject.CompareTag("Cloud"))
+        {
+            Physics.gravity = new Vector3(0, 9.8f, 0);
+        }
     }
 
     // Update is called once per frame
@@ -41,11 +49,12 @@ public class PLAYER : MonoBehaviour
                 {
                     Debug.Log("加熱");
                     TYPE++;
-
-                    if(TYPE==2)
+                    gameObject.tag = "Aqua";
+                    if (TYPE==2)
                     {
                         Debug.Log("浮上");
                         Physics.gravity = new Vector3(0, 9.8f, 0);
+                        gameObject.tag = "Cloud";
                     }
                 }
             }
@@ -56,10 +65,12 @@ public class PLAYER : MonoBehaviour
                 {
                     Debug.Log("冷却");
                     TYPE--;
+                    gameObject.tag = "Aqua";
                     if (TYPE == 0)
                     {
                         Debug.Log("降下");
                         Physics.gravity = new Vector3(0, -9.8f, 0);
+                        gameObject.tag = "Ice";
                     }
                 }
             }

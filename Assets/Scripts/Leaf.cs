@@ -4,16 +4,36 @@ using UnityEngine;
 
 public class Leaf : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject m_controller;
+    public enum Colli_Type
+    {
+        ICE,
+        AQUA,
+        CLOUD
+    };
+
     void Start()
     {
-        this.gameObject.GetComponent<Transform>().Rotate(0, 90, -30);
-        this.gameObject.GetComponent<Transform>().transform.Translate(0, -0.2f, 0);
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    void FixedUpdate()
+    {
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        Debug.Log("OnTriggerExit_Leaf");
+        if (col.gameObject.CompareTag("Ice") || col.gameObject.CompareTag("Aqua"))
+        {
+            if (!col.gameObject.GetComponent<BoxCollider>().isTrigger){
+                m_controller.GetComponent<Leaf_Controller>().Return_Angle();
+            }
+        }
     }
 }

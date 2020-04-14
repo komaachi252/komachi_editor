@@ -90,7 +90,7 @@ public class FileManager : MonoBehaviour
 
     public void Add_Object(int i, int j, int offset_i, int offset_j, int object_index)
     {
-        Debug.Log("offset_j" + offset_j);
+        //Debug.Log("offset_j" + offset_j);
         //  データ上の変更
         m_map_data.Map_data[i, j] = object_index;
 

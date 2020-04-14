@@ -8,20 +8,19 @@ public class HIT_L : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        this.gameObject.tag = PLAYER.tag;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        this.gameObject.tag = PLAYER.tag;
     }
 
     void OnTriggerEnter(Collider other)             //他のオブジェクトとの接触時の処理
     {
         if (other.gameObject.CompareTag("Hot"))     //加熱属性に当たった時
         {
-            Debug.Log("fe");
             PLAYER.SET_stayHOT_L();
         }
 

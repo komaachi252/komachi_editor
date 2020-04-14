@@ -14,6 +14,7 @@ public class CursorManager : MonoBehaviour
     public GameObject m_cursor;
     public GameObject m_camera;
     public GameObject m_file_manager;
+    public GameObject m_play;
 
     public Transform m_objects_position;
     int m_offset_x = 0;
@@ -30,6 +31,7 @@ public class CursorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_play.GetComponent<PlayButton>().Is_Play) return;
         // Vector3でマウス位置座標を取得する
         Vector3 position = Input.mousePosition;
         // Z軸修正

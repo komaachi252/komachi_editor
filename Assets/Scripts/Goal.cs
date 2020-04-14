@@ -21,7 +21,7 @@ public class Goal : MonoBehaviour
     private void OnCollisionEnter(Collision col)
     {
         //!  プレイヤーだった場合ゲームクリア呼び出し
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Ice") || col.gameObject.CompareTag("Aqua") || col.gameObject.CompareTag("Cloud"))
         {
             Instantiate(m_clear_logo);
         }
