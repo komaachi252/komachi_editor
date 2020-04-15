@@ -7,6 +7,7 @@ using System.Windows.Forms; //OpenFileDialog用に使う
 public class OpenFileButton : MonoBehaviour
 {
     public GameObject m_file_manager;
+    public GameObject m_cursor_manager;
     string m_current_file_path;
     void Start()
     {
@@ -56,6 +57,9 @@ public class OpenFileButton : MonoBehaviour
 
         //  現在のディレクトリ情報を保存
         m_current_file_path = open_file_dialog.FileName;
+
+        //  カーソルのオフセット値をリセット
+        m_file_manager.GetComponent<CursorManager>().Offset_Reset();
 
         return true;
     }

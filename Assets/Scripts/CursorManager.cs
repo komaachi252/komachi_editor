@@ -23,6 +23,7 @@ public class CursorManager : MonoBehaviour
     int m_object_index = 0;
     const int CURSOR_HEIGHT = 17;
     const int CURSOR_WIDTH = 17;
+    bool m_is_input = false;
     void Start()
     {
 
@@ -32,6 +33,11 @@ public class CursorManager : MonoBehaviour
     void Update()
     {
         if (m_play.GetComponent<PlayButton>().Is_Play) return;
+        //  ファイルが一回でも読み込めれば入力可能にする
+        if(m_file_manager.GetComponent<FileManager>().File_Name != "" && !m_is_input){
+            m_is_input = true;
+        }
+        if (!m_is_input) return;
         // Vector3でマウス位置座標を取得する
         Vector3 position = Input.mousePosition;
         // Z軸修正
@@ -142,5 +148,11 @@ public class CursorManager : MonoBehaviour
     public int Get_Seleted_Object()
     {
         return m_object_index >= 0 ? m_object_index : -1;
+    }
+
+    public void Offset_Reset()
+    {
+        m_offset_x = 0;
+        m_offset_y = 0;
     }
 }

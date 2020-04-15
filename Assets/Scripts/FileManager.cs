@@ -9,8 +9,12 @@ public class FileManager : MonoBehaviour
 {
     // Start is called before the first frame update
     Map_Data m_map_data;
-    string m_file_name;
+    string m_file_name = "";
     string m_file_path;
+    public string File_Name
+    {
+        get { return m_file_name; }
+    }
     public GameObject[] m_objects;
     public GameObject m_name_field;
     public GameObject m_cursor;

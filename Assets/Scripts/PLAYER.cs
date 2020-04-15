@@ -42,17 +42,17 @@ public class PLAYER : MonoBehaviour
         Play_Check();
         if (Input.GetKeyDown(KeyCode.A) && MOVE_NOW == 0)
         {
-            Debug.Log("入力");
+            //Debug.Log("入力");
             if(stay_HOT==1)
             {
                 if (TYPE < 2)
                 {
-                    Debug.Log("加熱");
+                   // Debug.Log("加熱");
                     TYPE++;
                     gameObject.tag = "Aqua";
                     if (TYPE==2)
                     {
-                        Debug.Log("浮上");
+                        //Debug.Log("浮上");
                         Physics.gravity = new Vector3(0, 9.8f, 0);
                         gameObject.tag = "Cloud";
                     }
@@ -63,12 +63,12 @@ public class PLAYER : MonoBehaviour
             {
                 if (TYPE > 0)
                 {
-                    Debug.Log("冷却");
+                    //Debug.Log("冷却");
                     TYPE--;
                     gameObject.tag = "Aqua";
                     if (TYPE == 0)
                     {
-                        Debug.Log("降下");
+                        //Debug.Log("降下");
                         Physics.gravity = new Vector3(0, -9.8f, 0);
                         gameObject.tag = "Ice";
                     }
