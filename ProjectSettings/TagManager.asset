@@ -12,6 +12,7 @@ TagManager:
   - Aqua
   - Cloud
   - Windmill
+  - Watermill
   layers:
   - Default
   - TransparentFX
