@@ -10,16 +10,22 @@ public class Hammer_Controller : MonoBehaviour
     private bool m_is_return = false; //  戻り中？
 
     private bool m_is_wait = false;
-    public const float MOVE_SPEED = 5.0f;
-    public const float RETURN_SPEED = -5.0f;
     private float m_move_speed = 0.0f;
     private float m_return_speed = -2.0f;
     private int m_wait_frame;
+    public bool m_is_right;
     void Start()
     {
         m_base_angle_z = this.transform.rotation.z;
+        if (!m_is_right){
+            this.transform.Translate(0.5f, -1.5f, 0);
+        }else
+        {
+            this.transform.Translate(0.5f, -1.5f, 0);
+            m_return_speed *= - 1.0f;
+            m_target_angle_z *= -1.0f;
 
-        this.transform.Translate(0.5f, -1.5f, 0);
+        }
     }
 
     // Update is called once per frame
@@ -45,7 +51,13 @@ public class Hammer_Controller : MonoBehaviour
             else
             {
                 transform.Rotate(new Vector3(0, 0, m_move_speed));
-                m_move_speed += 0.15f;
+                if (!m_is_right)
+                {
+                    m_move_speed += 0.15f;
+                }else
+                {
+                    m_move_speed -= 0.15f;
+                }
             }
         }
         else
