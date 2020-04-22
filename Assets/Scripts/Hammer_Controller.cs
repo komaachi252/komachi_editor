@@ -31,6 +31,7 @@ public class Hammer_Controller : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!GameObject.Find("PlayButton").gameObject.GetComponent<PlayButton>().Is_Play) return;
         if (m_is_wait)
         {
             Wait();
