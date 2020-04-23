@@ -13,6 +13,16 @@ TagManager:
   - Cloud
   - Windmill
   - Watermill
+  - Thorn
+  - Lift
+  - Fire
+  - Water
+  - Gap
+  - Gear
+  - Hammer
+  - Slime
+  - Sponge
+  - Thorn_Block
   layers:
   - Default
   - TransparentFX

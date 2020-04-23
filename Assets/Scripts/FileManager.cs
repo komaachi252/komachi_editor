@@ -9,6 +9,10 @@ public class FileManager : MonoBehaviour
 {
     // Start is called before the first frame update
     Map_Data m_map_data;
+    public Map_Data Map_Data
+    {
+        get { return m_map_data; }
+    }
     string m_file_name = "";
     string m_file_path;
     public string File_Name
@@ -62,6 +66,11 @@ public class FileManager : MonoBehaviour
                 if (map_data.Map_data[i, j] == 0)continue;
                 GameObject obj = Instantiate(m_objects[map_data.Map_data[i, j]], new Vector3(x + j, y - i, 0.0f), Quaternion.identity);
                 obj.transform.parent = this.gameObject.GetComponent<Transform>().transform;
+                //  リフトブロックの特別処理
+                if(map_data.Map_data[i, j].Equals(25))
+                {
+                    obj.gameObject.GetComponent<Lift_Block>().Set_Map_Data_Index(i, j);
+                }
                 m_object_instances[i, j] = obj;
             }
         }
@@ -104,6 +113,11 @@ public class FileManager : MonoBehaviour
         var y = (m_map_data.Height - 1) * 1.0f - offset_i;
         GameObject obj = Instantiate(m_objects[object_index], new Vector3(x + j, y - i, 0.0f), Quaternion.identity);
         obj.transform.parent = this.gameObject.GetComponent<Transform>().transform;
+        //  リフトブロックの特別処理
+        if (m_map_data.Map_data[i, j].Equals(25))
+        {
+            obj.gameObject.GetComponent<Lift_Block>().Set_Map_Data_Index(i, j);
+        }
         m_object_instances[i, j] = obj;
     }
     public void Erase_Object(int i, int j)
@@ -129,6 +143,10 @@ public class FileManager : MonoBehaviour
                 if (m_map_data.Map_data[i, j] == 0) continue;
                 GameObject obj = Instantiate(m_objects[m_map_data.Map_data[i, j]], new Vector3(x + j, y - i, 0.0f), Quaternion.identity);
                 obj.transform.parent = this.gameObject.GetComponent<Transform>().transform;
+                if (m_map_data.Map_data[i, j].Equals(25))
+                {
+                    obj.gameObject.GetComponent<Lift_Block>().Set_Map_Data_Index(i, j);
+                }
                 m_object_instances[i, j] = obj;
             }
         }

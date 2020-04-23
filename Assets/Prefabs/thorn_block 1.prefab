@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 7016601495509942416}
   m_Layer: 0
   m_Name: thorn_block 1
-  m_TagString: Untagged
+  m_TagString: Thorn_Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

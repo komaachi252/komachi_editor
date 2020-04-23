@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4048792927328410670}
   m_Layer: 0
   m_Name: Hammer_Controller
-  m_TagString: Untagged
+  m_TagString: Hammer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d13fdd0c7fc8c4548a0d128ea3ea0356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_is_right: 0
 --- !u!1001 &1930678447963439810
 PrefabInstance:
   m_ObjectHideFlags: 0
