@@ -133,9 +133,11 @@ public class FileManager : MonoBehaviour
         foreach (Transform n in this.gameObject.transform){
             Destroy(n.gameObject);
         }
+        var offset_x = GameObject.Find("CursorManager").GetComponent<CursorManager>().Offset_X;
+        var offset_y = GameObject.Find("CursorManager").GetComponent<CursorManager>().Offset_Y;
         //  座標初期値
-        var x = 0.5f;
-        var y = (m_map_data.Height - 1) * 1.0f;
+        var x = 0.5f - offset_x;
+        var y = (m_map_data.Height - 1) * 1.0f - offset_y;
         m_object_instances = new GameObject[MAP_HEIGHT_MAX, MAP_WIDTH_MAX];
 
         for (int i = 0; i < m_map_data.Height; i++){
@@ -150,6 +152,7 @@ public class FileManager : MonoBehaviour
                 m_object_instances[i, j] = obj;
             }
         }
+
     }
 
 }

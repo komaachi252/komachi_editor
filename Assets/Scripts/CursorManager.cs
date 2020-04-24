@@ -18,8 +18,18 @@ public class CursorManager : MonoBehaviour
 
     public Transform m_objects_position;
     int m_offset_x = 0;
+    public int Offset_X
+    {
+        get { return m_offset_x; }
+    }
+
     //int m_offset_y = FileManager.MAP_HEIGHT_MAX - CURSOR_HEIGHT;
     int m_offset_y = 0;
+    public int Offset_Y
+    {
+        get { return m_offset_y; }
+    }
+
     int m_object_index = 0;
     const int CURSOR_HEIGHT = 17;
     const int CURSOR_WIDTH = 17;
@@ -82,6 +92,8 @@ public class CursorManager : MonoBehaviour
     //  選択カーソルのオブジェクトの縦　横　オブジェクトのインデックス番号
     void Set_Cursor_Object(int i, int j, int obj_index)
     {
+        if (obj_index == -1) return;
+
         //Debug.Log("i" + i);
         //Debug.Log("offset" + m_offset_y);
         if(obj_index == 0){
